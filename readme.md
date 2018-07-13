@@ -1,4 +1,5 @@
-## Skeleton for Node.js applications written in TypeScript
+## Build a mini block chain use node with typescript
+the codes are from the article: https://wangwei.one/posts/df195d9.html
 
 ### Development
 
