@@ -27,13 +27,16 @@ export class Block{
     return this.hash;
   }
   public setHash(hash) {
-    return this.hash;
+    return this.hash = hash;
   }
   public getPreviousHash() {
     return this.previousHash;
   }
   public getData() {
     return this.data;
+  }
+  public getTimestamp() {
+    return this.timestamp;
   }
 
   public setNonce(nonce) {
@@ -52,10 +55,11 @@ export class Block{
    */
   public static newBlock(previousHash: string, data: any) {
     let block = new Block({previousHash: previousHash, data: data});
+    debugger;
     let pow = ProofOfWork.newProofOfWork(block);
     let powResult = pow.run();
     block.setHash(powResult.getHash());
-    block.setNonce(powResult.getNonce())
+    block.setNonce(powResult.getNonce());
     return block;
   }
 
@@ -64,7 +68,6 @@ export class Block{
    */
   public static newGenesisBlock() {
     let genesisBlock = Block.newBlock('',"Genesis Block");
-    genesisBlock.setHash('');
     return genesisBlock;
   }
 
